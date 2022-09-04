@@ -1,4 +1,7 @@
 .venv
+.vscode
 poetry.lock
 __pycache__
 *.scad
+*.stl
+
