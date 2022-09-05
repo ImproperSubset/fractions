@@ -50,7 +50,7 @@ class FractionBlocks:
         slice_pan_gap (int): extra space to loosen slices in the pan (default = 2 mm)
         pan_floor_height (int): the thickness of the pie pan's floor (default = 3 mm)
         pan_wall_width (int): the width of the pan's wall (default = 3 mm)
-        label_position (int): adjusts position of label on slice (default = 3 mm)
+        label_position (int): adjusts position of label on slice (default = 2 mm)
         label_divider_scale (float): scales the width of the vinculum (default = 1.0)
         label_font_size (int): approximate height of label font (default = 13 mm)
         fillet (int): radius of fillets (default = 2 mm)
@@ -84,7 +84,7 @@ class FractionBlocks:
     pan_wall_width: int = 3
 
     # Additional distance to move label away from center of the pie in mm
-    label_position: int = 3
+    label_position: int = 0
 
     # You know the line between the numerator and the denominator?
     # Apparently, it's called the vinculum? For small fractions, the
