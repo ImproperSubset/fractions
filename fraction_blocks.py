@@ -162,7 +162,9 @@ class FractionBlocks:
         inner = self.slice_radius + self.slice_pan_gap
         outer = inner + self.pan_wall_width
         return difference()(
-            cylinder(r=outer, h=self.pan_floor_height + self.slice_height*0.8, segments=self.segments),
+            cylinder(r=outer,
+                h=self.pan_floor_height + self.slice_height*0.8,
+                segments=self.segments),
             translate(v=(0, 0,self.pan_floor_height))(
                 cylinder(r=inner,h=self.slice_height,segments=self.segments)
             )
@@ -170,16 +172,22 @@ class FractionBlocks:
 
 
     def pie_slice(self) -> None:
+        """Generate OpenSCAD code for the specified pie slice"""
         scad_render_to_file(
             self._assemble_pie_slice(), self.filename, include_orig_code=True
         )
 
     def pie_pan(self) -> None:
+        """Generate OpenSCAD code for a pie pan that fits the specified pie slice"""
         scad_render_to_file(
             self._assemble_pie_pan(), self.filename, include_orig_code=True
         )
 
     def test(self) -> None:
+        """Generate OpenSCAD code for a test fit of the specified pie slice
+        in a pie pan. This is provided to visualize the specified components.
+        It should not be printed. It should only be rendered for testing.
+        """
         test_assembly = self._assemble_pie_pan()
         test_assembly += translate(v=(0, 0, self.pan_floor_height))(
             self._assemble_pie_slice()
